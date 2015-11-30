@@ -18,7 +18,6 @@ navs = [
 
 
 temprender = (data,template,$contaniner)->
-  reg
   temp = template.html()
   data.forEach (item)->
     for key in item
@@ -26,8 +25,6 @@ temprender = (data,template,$contaniner)->
       temp = temp.replace(reg,item[key])
  
     $contaniner.append temp
-
-}
 
 
 $ ()->
