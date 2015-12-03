@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-   /* sass = require('gulp-sass'),*/
+    sass = require('gulp-sass'),
     coffee = require('gulp-coffee'),
     jade = require('gulp-jade');
     autoprefixer = require("gulp-autoprefixer"),
@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     del = require('del'),
     svgSymbols = require('gulp-svg-symbols');
 
-/*gulp.task('styles',function(){
+gulp.task('styles',function(){
   return gulp.src('./src/sass/*.scss')
     .pipe(sass())
     .pipe(autoprefixer('last 2 version'))
@@ -28,7 +28,7 @@ gulp.task('css',['styles'],function(cb){
     .pipe(minifycss())
     .pipe(gulp.dest('./build/css'))
     .pipe(notify('Css task complete'))
-})*/
+})
 
 gulp.task('scripts',function(){
   return gulp.src('./src/coffee/*.coffee')
@@ -76,17 +76,19 @@ gulp.task('templates', function() {
 
 
 gulp.task('clean',function(cb){
-  del(['./build/js','./build/svg','./build/*.html'],cb)
+  del(['./build/js','./build/css','./build/svg','./build/*.html'],cb)
 })
 
 
 gulp.task('default',['clean'],function(){
-  gulp.start('js','sprites','templates');
+  gulp.start('js','css','sprites','templates');
 })
 
 gulp.task('watch',function(){
-  /*gulp.watch('./src/sass/*.scss',['css']);*/
+  gulp.watch('./src/sass/*.scss',['css']);
   gulp.watch('./src/coffee/*.coffee',['js']);
+   gulp.watch('./src/svg/*.svg',['sprites']);
   gulp.watch('./views/*.jade',['templates']);
 })
+
 

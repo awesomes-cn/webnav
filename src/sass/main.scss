@@ -1,8 +1,76 @@
-#navs {
-  & > ul > li{
-    display: inline-block; width: 200px; height: 100px; border: #EEE 1px solid;
-    a{
-      display: inline-block; width: 100%; height: 100%; 
+body{ line-height: 25px;background-color: #F4F4F4; margin: 0; padding: 0; }
+
+body,button,input{color: #333;font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;font-size: 13px;}
+
+
+a:link,a:visited{
+  color: #666;
+}
+
+a:hover,a:active{
+  color: #000;
+}
+
+
+
+.box{
+  display: block;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.box.column{
+  flex-direction: column;
+}
+
+.container{
+  margin: 0 auto; width: 99%; max-width: 1000px;  padding-top: 100px;
+}
+
+.search-wrap{
+  max-width: 500px; padding-right: 100px; position: relative; margin: 0 auto;
+  form{width: 100%;}
+  input[type="text"]{
+  width:100%; display: inline-block; padding: 10px 9px 10px 7px; line-height: 20px;
+    outline: none; border: #DDD 1px solid; box-sizing: border-box; height: 40px; border-right: 0;
+  }
+  button{
+    display: inline-block; outline: none; position: absolute; right:0; top: 0; border:#DDD 1px solid; cursor: pointer;   width: 100px;  height: 40px;
+    background-color: #FFF;
+  }
+
+}
+
+.switch-origin{
+  text-align: center;
+  span{
+    display: inline-block; margin: 10px; cursor: pointer; color: #BBB;
+    &.active{
+      color: #333;
     }
   }
+} 
+
+
+
+#navs > div {
+  flex-grow: 1; margin: 20px; width: 200px; background-color: #FFF; 
+   a {
+    display: inline-block;  text-align: center; text-decoration: none; 
+    width: 100%;
+    height: 100%; }
 }
+
+#config-wrap{
+  height: 400px; background-color: #FFF; display: none;
+}
+
+.open-config{
+  float: right; cursor: pointer; margin: 20px; width: 20px; height: 20px;fill: #D0D0D0;
+  &:hover{
+    fill: #333;
+  }
+}
+

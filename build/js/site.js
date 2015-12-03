@@ -23,39 +23,23 @@ navs = [
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }, {
-    name: '腾讯',
+    name: 'Ruby-China',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }, {
-    name: '腾讯',
+    name: '开发者头条',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }, {
-    name: '腾讯',
+    name: '稀土掘金',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }, {
-    name: '腾讯',
+    name: '极客头条',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }, {
-    name: '腾讯',
-    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
-    link: 'http://www.baidu.com'
-  }, {
-    name: '腾讯',
-    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
-    link: 'http://www.baidu.com'
-  }, {
-    name: '腾讯',
-    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
-    link: 'http://www.baidu.com'
-  }, {
-    name: '腾讯',
-    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
-    link: 'http://www.baidu.com'
-  }, {
-    name: '腾讯',
+    name: 'Hacker News',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }
@@ -84,11 +68,12 @@ $(function() {
     data: {
       navs: navs,
       searchs: searchs,
-      engine: searchs[0]
+      engine: localStorage.engine || searchs[0]
     },
     methods: {
       switch_search: function(item) {
-        return app.engine = item;
+        app.engine = item;
+        return localStorage.engine = item;
       }
     }
   });
@@ -96,8 +81,10 @@ $(function() {
     return $("#config-wrap").slideToggle();
   });
   $("#navs > div").mousedown(function(ev) {
-    var mel;
+    var mel, orix, oriy;
     mel = $(this);
+    orix = ev.clientX;
+    oriy = ev.clientY;
     return $(document).mousemove(function(e) {
       return mel.css("position", "absolute").css('left', e.clientX).css('top', e.clientY);
     });
