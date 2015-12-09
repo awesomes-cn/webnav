@@ -7,12 +7,12 @@ navs = [
   {
     name: '淘宝',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
-    link: 'http://www.baidu.com'
+    link: 'http://www.taobao.com'
   },
   {
     name: '腾讯',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
-    link: 'http://www.baidu.com'
+    link: 'http://www.google.com'
   }
 ]
 
@@ -20,9 +20,9 @@ navs = [
 temprender = (data,template,$contaniner)->
   temp = template.html()
   data.forEach (item)->
-    for key in item
-      reg = new RegExp("{{"+key+"}}","gi")
-      temp = temp.replace(reg,item[key])
+    for k,v of item
+      reg = new RegExp("{{"+k+"}}","gi")
+      temp = temp.replace(reg,v)
  
     $contaniner.append temp
 
