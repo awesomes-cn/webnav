@@ -1,8 +1,22 @@
 extends layouts/layout.jade
 
-block con
-  div#navs
-    ul
-  script(type="text/html" id="nav_temp")
-    li
-      a(href="{{link}}")
+block con 
+  div#config-wrap
+
+  div
+    svg.icon-cog.open-config(title="设置"): use(xlink:href="svg/svg-symbols.svg#cog")
+
+  div.container
+    div.search-wrap
+      form(method="get" action="{{engine.action}}")
+        input(type="text" name="{{engine.field}}")
+        button {{engine.name}} 一下
+
+      div.switch-origin
+        span(v-for="item in searchs" v-on:click="switch_search(item)" v-bind:class="item ==  engine ? 'active' : ''") {{item.name}}
+
+
+    div#navs.box
+      div(v-for="item in navs")
+        a(href="{{item.link}}")
+          h3 {{item.name}}
