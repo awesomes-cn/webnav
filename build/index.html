@@ -1,1 +1,30 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Hello world </title><link href="css/site.css" rel="stylesheet"><script src="js/site.js"></script></head><body id="app"><div id="config-wrap"></div><div><svg title="设置" class="icon-cog open-config"><use xlink:href="svg/svg-symbols.svg#cog"></use></svg></div><div class="container"><div class="search-wrap"><form method="get" action="{{engine.action}}"><input type="text" name="{{engine.field}}"><button>{{engine.name}} 一下</button></form><div class="switch-origin"><span v-for="item in searchs" v-on:click="switch_search(item)" v-bind:class="item ==  engine ? 'active' : ''">{{item.name}}</span></div></div><div id="navs" class="box"><div v-for="item in navs"><a href="{{item.link}}"><h3>{{item.name}}</h3></a></div></div></div></body></html>
+<!DOCTYPE html>
+<html id="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello world </title>
+    <link href="css/site.css" rel="stylesheet">
+    <script src="js/site.js"></script>
+  </head>
+  <body style="background-image: url('http://3.su.bdimg.com/skin/609.jpg')">
+    <div id="config-wrap"></div>
+    <div>
+      <svg title="设置" class="icon-cog open-config">
+        <use xlink:href="svg/svg-symbols.svg#cog"></use>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="search-wrap">
+        <form method="get" action="{{engine.action}}">
+          <input type="text" name="{{engine.field}}">
+          <button>{{engine.name}} 一下</button>
+        </form>
+        <div class="switch-origin"><span v-for="item in searchs" v-on:click="switch_search(item)" v-bind:class="item.name ==  engine.name ? 'active' : ''">{{item.name}}</span></div>
+      </div>
+      <ul id="navs">
+        <li v-for="item in navs"><a href="{{item.link}}" title="{{item.name}}">{{item.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

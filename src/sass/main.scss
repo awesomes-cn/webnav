@@ -26,18 +26,18 @@ a:hover,a:active{
 }
 
 .container{
-  margin: 0 auto; width: 99%; max-width: 1000px;  padding-top: 100px;
+  margin: 0 auto; width: 99%; max-width: 700px;  padding-top: 100px;
 }
 
 .search-wrap{
-  max-width: 500px; padding-right: 100px; position: relative; margin: 0 auto;
+   padding-right: 100px; position: relative; margin: 0 auto;
   form{width: 100%;}
   input[type="text"]{
   width:100%; display: inline-block; padding: 10px 9px 10px 7px; line-height: 20px;
-    outline: none; border: #DDD 1px solid; box-sizing: border-box; height: 40px; border-right: 0;
+    outline: none; border: #FFF 1px solid; box-sizing: border-box; height: 40px; border-right: 0;
   }
   button{
-    display: inline-block; outline: none; position: absolute; right:0; top: 0; border:#DDD 1px solid; cursor: pointer;   width: 100px;  height: 40px;
+    display: inline-block; outline: none; position: absolute; right:0; top: 0; border:#FFF 1px solid; cursor: pointer;   width: 100px;  height: 40px;
     background-color: #FFF;
   }
 
@@ -56,11 +56,17 @@ a:hover,a:active{
 
 
 #navs > div {
-  flex-grow: 1; margin: 20px; width: 200px; background-color: #FFF; 
-   a {
+  flex-grow: 1; margin: 20px; width: 200px; background-color: #FFF;  opacity: 0.6; 
+  & > a {
     display: inline-block;  text-align: center; text-decoration: none; 
     width: 100%;
     height: 100%; }
+  .toolbar{
+    border-bottom: #EEE 1px dashed; text-align: right; padding: 5px;
+    a{margin: 10px;}
+    svg{width: 13px; height: 13px;fill: #9D9D9D}
+  }  
+  .add-nav{width: 30px; height: 30px;}
 }
 
 #config-wrap{
@@ -74,3 +80,10 @@ a:hover,a:active{
   }
 }
 
+#navs{
+  display: block; background-color: #FFF; opacity: 0.8; padding: 0; overflow: hidden;
+  li{display: block; list-style: none; margin: 0; padding: 0; border-bottom: #EEE 1px solid; 
+    height: 50px; line-height: 50px;  padding: 0 10px;  border-right: #EEE 1px solid;box-sizing: border-box;
+    width: 100px; float: left;  text-overflow: ellipsis;  overflow: hidden; white-space: nowrap; text-align: center;}
+  a{text-decoration: none; font-size: 13px; font-weight: bold}
+}

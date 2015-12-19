@@ -12,7 +12,7 @@ navs = [
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }, {
-    name: '开发者头条',
+    name: '开发者头条开发者头条',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }
@@ -28,6 +28,19 @@ navs = [
   }
   , {
     name: 'Hacker News',
+    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
+    link: 'http://www.baidu.com'
+  }, {
+    name: 'Ruby-China',
+    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
+    link: 'http://www.baidu.com'
+  }, {
+    name: '开发者头条开发者头条',
+    img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
+    link: 'http://www.baidu.com'
+  }
+  , {
+    name: '稀土掘金',
     img: "http://assets.jq22.com/plugin/2015-10-27-16-10-20.png",
     link: 'http://www.baidu.com'
   }
@@ -52,35 +65,40 @@ searchs = [
 ]
 
 
+skins = ["http://3.su.bdimg.com/skin/609.jpg","http://2.su.bdimg.com/skin/632.jpg"]
 
+
+
+
+Config =
+  set: (key,val)->
+    localStorage.setItem(key,JSON.stringify(val))
+  get: (key)->
+    if localStorage.getItem(key) then $.parseJSON(localStorage.getItem(key)) else ''
+
+
+Config.set('searchs',searchs)
+Config.set('navs',navs)
+
+Config.set('skins',skins)
+
+#alert( localStorage.skin)
 
 
 $ ()->
   app = new Vue
     el: '#app'
     data:
-      navs: navs
-      searchs: searchs
-      engine: localStorage.engine || searchs[0]
+      navs: Config.get('navs')
+      searchs: Config.get('searchs')
+      engine: Config.get('engines') || searchs[0]
+      skin:  Config.get('skins')[0]
 
     methods:
       switch_search: (item)->
         app.engine = item
-        localStorage.engine = item
+        Config.set('engines',item)
 
+      add_nav: ()->
+         navs.push({})
 
-  $(".open-config").click ()->
-    $("#config-wrap").slideToggle()
-
-  $("#navs > div").mousedown (ev)->
-    mel = $(this)
-    orix = ev.clientX
-    oriy = ev.clientY
-    $(document).mousemove (e)->
-      mel.css("position","absolute").css('left',e.clientX).css('top',e.clientY)
-      
-
-  
-  $(document).mouseup ()->
-    $(document).unbind('mousemove')
-        

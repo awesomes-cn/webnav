@@ -1,4 +1,3 @@
-
 body {
   line-height: 25px;
   background-color: #F4F4F4;
@@ -41,11 +40,10 @@ a:hover, a:active {
 .container {
   margin: 0 auto;
   width: 99%;
-  max-width: 1000px;
+  max-width: 700px;
   padding-top: 100px; }
 
 .search-wrap {
-  max-width: 500px;
   padding-right: 100px;
   position: relative;
   margin: 0 auto; }
@@ -57,7 +55,7 @@ a:hover, a:active {
     padding: 10px 9px 10px 7px;
     line-height: 20px;
     outline: none;
-    border: #DDD 1px solid;
+    border: #FFF 1px solid;
     box-sizing: border-box;
     height: 40px;
     border-right: 0; }
@@ -67,7 +65,7 @@ a:hover, a:active {
     position: absolute;
     right: 0;
     top: 0;
-    border: #DDD 1px solid;
+    border: #FFF 1px solid;
     cursor: pointer;
     width: 100px;
     height: 40px;
@@ -90,13 +88,27 @@ a:hover, a:active {
           flex-grow: 1;
   margin: 20px;
   width: 200px;
-  background-color: #FFF; }
-  #navs > div a {
+  background-color: #FFF;
+  opacity: 0.6; }
+  #navs > div > a {
     display: inline-block;
     text-align: center;
     text-decoration: none;
     width: 100%;
     height: 100%; }
+  #navs > div .toolbar {
+    border-bottom: #EEE 1px dashed;
+    text-align: right;
+    padding: 5px; }
+    #navs > div .toolbar a {
+      margin: 10px; }
+    #navs > div .toolbar svg {
+      width: 13px;
+      height: 13px;
+      fill: #9D9D9D; }
+  #navs > div .add-nav {
+    width: 30px;
+    height: 30px; }
 
 #config-wrap {
   height: 400px;
@@ -112,3 +124,31 @@ a:hover, a:active {
   fill: #D0D0D0; }
   .open-config:hover {
     fill: #333; }
+
+#navs {
+  display: block;
+  background-color: #FFF;
+  opacity: 0.8;
+  padding: 0;
+  overflow: hidden; }
+  #navs li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: #EEE 1px solid;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    border-right: #EEE 1px solid;
+    box-sizing: border-box;
+    width: 100px;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center; }
+  #navs a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold; }

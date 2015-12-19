@@ -13,10 +13,15 @@ block con
         button {{engine.name}} 一下
 
       div.switch-origin
-        span(v-for="item in searchs" v-on:click="switch_search(item)" v-bind:class="item ==  engine ? 'active' : ''") {{item.name}}
+        span(v-for="item in searchs" v-on:click="switch_search(item)" v-bind:class="item.name ==  engine.name ? 'active' : ''") {{item.name}}
 
 
-    div#navs.box
-      div(v-for="item in navs")
-        a(href="{{item.link}}")
-          h3 {{item.name}}
+    ul#navs
+      li(v-for="item in navs")
+        //- div.toolbar
+          //- a(href="#" title="删除"): svg.icon-cog: use(xlink:href="svg/svg-symbols.svg#trash")
+          //- a(href="#" title="编辑"): svg.icon-cog: use(xlink:href="svg/svg-symbols.svg#pencil")
+        a(href="{{item.link}}" title="{{item.name}}") {{item.name}}
+
+      //- div
+      //-   a(href="#" v-on:click="add_nav()"): svg.icon-cog.add-nav: use(xlink:href="svg/svg-symbols.svg#plus")
